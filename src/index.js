@@ -1,10 +1,41 @@
-import React from 'react';
+import React, { useState,useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const App =()=>{
+  const[myNum,setMyNum]=useState(0)
+  const inputOne =useRef()
+  const inputTwo =useRef()
+
+  const setNum=()=>{
+    console.log("Hi");
+  };
+  const getNum=()=>{
+    console.log("well");
+  };
+
+  return(
+    <>
+     <input ref={inputOne}
+     value={myNum}
+     type="text"
+     onChange={(e)=>setMyNum(e.target.value)}/>
+
+     <input ref={inputTwo}
+     value={myNum}
+     type="number"
+     onChange={(e)=>setMyNum(e.target.value)}/>
+
+     <button onClick={()=>setNum()}>R</button>
+     <button onClick={()=>getNum()}>G</button>
+     </>
+  )
+};
 root.render(
   <React.StrictMode>
     <App />
